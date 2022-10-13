@@ -1,0 +1,236 @@
+/*
+
+    SUMÁRIO
+        0.CONFIG. GERAIS
+        1.MAIN
+            1.1 Flexboxs Principais
+            1.2 Filhos Flexboxs Principais
+            1.3 Hover
+            1.4 Container
+            1.5 Filhos Container
+
+*/
+
+/* ----- 0. CONFIG. GERAIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat&display=swap');
+
+:root{
+    --ptn-whte: #FFFFFF;
+    --ptn-blck: #000000;
+    --bkg-dblu: #1A0B50;
+    --bkg-blue: #7373F1;
+
+    --icn-pred: #D41414;
+    --icn-prpl: #8D0AF8;
+    --icn-gren: #2EAA15;
+    --icn-yllw: #E5FF00;
+    --icn-pink: #E40072;
+    --icn-gold: #FFD000;
+    --icn-blue: #1900FD;
+
+    --srf-libre: 'Libre Baskerville', sans-serif;
+    --ssf-montserrat: 'Montserrat', serif;
+
+    --border-test: 1px solid var(var(--ptn-whte));
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+/* 0. CONFIG. GERAIS ----- */
+
+/* ----- 1. MAIN */
+
+/* ---- 1.1 Flexboxs Principais */
+.bd-prim-flex{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+}
+
+.bd-sec-flex{
+    display: flex;
+}
+
+#bsf-text{
+    background-color: var(--bkg-blue);
+
+    width: 60%;
+    height: 100%;
+
+    justify-content: left;
+    align-items: center;
+}
+/* ---- 1.2 Filhos Flexboxs Principais */
+.bsf-text-title{
+    font: bold normal 60px var(--srf-libre);
+    background-color: var(--ptn-whte);
+
+    padding: 20px 20px 20px 300px;
+    margin-left: -15px;
+
+    border-radius: 15px;
+    box-shadow: 5px 10px 10px var(--ptn-blck);
+}
+
+#bsf-menu{
+    background-color: var(--bkg-dblu);
+
+    width: 40%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.bsf-menu-item{
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+
+    background-color: var(--ptn-blck);
+    border: 0.5px solid var(--ptn-whte);
+
+    transform: rotate(45deg);
+    margin-top: 50px;
+    margin-right: -25px;
+
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.bsf-menu-item:first-of-type{
+    margin-top: 0px;
+}
+/* ---- 1.3 Hover */
+.bsf-menu-item:hover{
+    background-color: var(--ptn-whte);
+    cursor: pointer;
+    transition-duration: 0.25s;
+
+    transform: scale(1.1) rotate(45deg);
+}
+
+.bsf-menu-item:hover .bsf-menu-item-img{
+    filter: none;
+}
+
+.bsf-menu-item:hover .blue{
+    color: var(--icn-blue);
+}
+.bsf-menu-item:hover .pink{
+    color: var(--icn-pink);
+}
+.bsf-menu-item:hover .yellow{
+    color: var(--icn-yllw);
+}
+.bsf-menu-item:hover .gold{
+    color: var(--icn-gold);
+}
+.bsf-menu-item:hover .red{
+    color: var(--icn-pred);
+}
+.bsf-menu-item:hover .green{
+    color: var(--icn-gren);
+}
+.bsf-menu-item:hover .purple{
+    color: var(--icn-prpl);
+}
+
+.bsf-menu-item::before{
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 3px solid transparent;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.bsf-menu-item:hover::before{
+    height: 100px;
+    width: 100px;
+    border: 3px solid var(--ptn-whte);
+    border-right: none;
+    border-top: none;
+    transition: height 0.5s linear, width 0.5s linear;
+}
+
+.bsf-menu-item::after{
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    border: 3px solid transparent;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.bsf-menu-item:hover::after{
+    height: 100px;
+    width: 100px;
+    border: 3px solid var(--ptn-whte);
+    border-left: none;
+    border-bottom: none;
+    transition: height 0.5s linear, width 0.5s linear;
+}
+
+.red:hover::before, .red:hover::after{
+    border-color: var(--icn-pred);
+}
+.blue:hover::before, .blue:hover::after{
+    border-color: var(--icn-blue);
+}
+.pink:hover::before, .pink:hover::after{
+    border-color: var(--icn-pink);
+}
+.gold:hover::before, .gold:hover::after{
+    border-color: var(--icn-gold);
+}
+.purple:hover::before, .purple:hover::after{
+    border-color: var(--icn-prpl);
+}
+.green:hover::before, .green:hover::after{
+    border-color: var(--icn-gren);
+}
+.yellow:hover::before, .yellow:hover::after{
+    border-color: var(--icn-yllw);
+}
+/* ---- 1.4 Container */
+.bsf-menu-item-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: rotate(-45deg);
+}
+/* ---- 1.5 Filhos Container */
+.bsf-menu-item-img{
+    width: 32px;
+    height: 32px;
+
+    filter: brightness(0) invert(1);
+}
+
+.bsf-menu-item-text{
+    font: bold normal 14px var(--ssf-montserrat);
+    color: var(--ptn-whte);
+
+    margin-top: 10px;
+}
+
+
+/* 1. MAIN ----- */
